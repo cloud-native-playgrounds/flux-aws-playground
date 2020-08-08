@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: YOUR_APP_NAME # TODO: UPDATE
+  labels:
+    app: YOUR_APP_NAME # TODO: UPDATE
+  namespace: default
+  annotations:
+    fluxcd.io/automated: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: YOUR_APP_NAME # TODO: UPDATE
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: YOUR_APP_NAME # TODO: UPDATE
+    spec:
+      containers:
+      - image: YOUR_ECR_IMAGE_PATH # TODO: UPDATE
+        imagePullPolicy: Always
+        name: YOUR_APP_NAME # TODO: UPDATE
+        ports:
+        - containerPort: 4000
+          protocol: TCP

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: YOUR_APP_NAME # TODO: UPDATE
+spec:
+  selector:
+    app: YOUR_APP_NAME # TODO: UPDATE
+  type: LoadBalancer
+  ports:
+   -  protocol: TCP
+      port: 80
+      targetPort: 4000

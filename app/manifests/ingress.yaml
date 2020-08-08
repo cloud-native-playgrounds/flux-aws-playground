@@ -1,0 +1,8 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: YOUR_APP_NAME # TODO: UPDATE
+spec:
+  backend:
+    serviceName: YOUR_APP_NAME # TODO: UPDATE
+    servicePort: 80
